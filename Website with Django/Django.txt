@@ -1,0 +1,48 @@
+Alt+z
+
+-------------------SETTING UP A DJANGO PROJECT
+Django: Web framework. Les you put together a website that is ast scaleable and secure.
+
+Framework: A library of resusable modules. Framework defines the structure of our aplications: tells us what folders and files we should have in our project (retains consistancy across various django projects). Django has modules to work with http requests, url's, sessions, cookies, etc. Using a framework saves you from coding all these functionalities from scratch.
+
+To start a django project, execute command in ternimal of project folder:
+django-admin startproject pyShop .
+- django-admin: utility or program that we cn excute from commandline or terminal
+- startproject: An argument. Takes other arguments.
+- pyShop: What you want project to be called
+-  .: Period indicated that you want to start project in current folder. Without the period the utility will create an extra folder.
+
+This created a manage.py file and the pyShop folder which has some files within. note that there is an __init__ file which tells us that this folder is a package
+
+Now run this command in terminal: 
+python manage.py runserver
+- This runs out developmen webserver. Starts a development webserver at a specific address
+- This runs the manage.py program and passes runserver as an argument
+- We get this: "Starting development server at http://127.0.0.1:8000/" (8000 is the port)
+
+manage.py is esscentially the same program that we worked with earlier when we typed django-admin. We use djngo-admin beofre creating a django project. But now that we have a django project we can work with manage.py.
+
+manage.py is a module that contains some python code, we use it to manage our django project
+
+-------------------APPS
+Django projects can contain multiple apps. These apps dont represent the entire applications, they are small functional areas in out django project.
+
+For example- if i wanted to create a site like amazon which has so many differet functions, instead of implementing all these functions into a django project, we divide up the project into functional areas that focus on one aspect. For an amazon-like site that might be product management, order management, customer management.
+
+SO we will divide a django project into multiple django apps, each app focusing on one functional area.
+
+To add a new app:
+1. Create a new terminal window
+2. Run this command: python manage.py startapp products
+    - This created  new folder called products. Product is a package as well (it has an __init__ folder), we can take this package and reuse it in another django project or we could pulish this package to pypy for other people to reuse in there django projects. So anytime you need to manage a list of products you can reuse this package, instead of building functionality from scratch.
+3. Within products folder we have some modules:
+    - admin.py: used for describing the adin panel of this app
+    - apps.py: used to store various configuration settings for this app
+    - models.py: use to define classes or new types for modelling the concepts of this app/domain. Ex in domain of products, we likely have concepts like product, category, review
+    - tests.py: Where we write automated tests for this app
+    - views.py: We define what the user should see when they navigate to a certain page.
+
+-------------------VIEW FUNCTIONS
+How to crete a view or view function in django.
+A view function is a function that gets clled by django when the user navigates to a particular page
+
